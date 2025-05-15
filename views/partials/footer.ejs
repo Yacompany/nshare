@@ -1,0 +1,149 @@
+<!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 <%- process.env.COMPANY %>, All rights reserved.</p>
+        <ul class="socials">
+            <li><a href="<%- process.env.FACEBOOK %>">Facebook</a></li>
+            <li><a href="<%- process.env.LINKEDIN %>">LinkedIn</a></li>
+            <li><a href="<%- process.env.MAINSITE %>">Visit Us</a></li>
+        </ul>
+    </footer>
+<script>
+  // AJAX form submission
+ /* document.getElementById('uploadForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form from refreshing the page
+
+      const formData = new FormData();
+      const fileInput = document.getElementById('fileInput');
+      const hidden = document.getElementById('hidden');
+
+      // Check if the user selected a file
+      if (fileInput.files.length > 0) {
+          formData.append('file', fileInput.files[0]);
+
+          // Make the AJAX request
+          fetch('http://localhost:3000/upload', {
+              method: 'POST',
+              body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.fileUrl) {
+                  // Display the shareable link
+                //  document.getElementById('shareableLink').innerHTML = `<a href="${data.fileUrl}" target="_blank">${data.fileUrl}</a>`;
+                  document.getElementById('linkInput').value = data.fileUrl;
+                 document.getElementById("copybox").style.display = "block";
+              }
+          })
+          .catch(error => {
+              console.error('Error uploading file:', error);
+              alert('There was an error uploading your file. Please try again.');
+          });
+      }
+  });
+ */
+
+  document.getElementById('uploadForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const fileInput = document.getElementById('fileInput');
+    const progressBar = document.getElementById('progressBar');
+    const statusText = document.getElementById('status');
+    const formData = new FormData();
+
+    if (fileInput.files.length > 0) {
+      formData.append('file', fileInput.files[0]);
+
+      const xhr = new XMLHttpRequest();
+
+      // Track progress
+      xhr.upload.addEventListener('progress', function(e) {
+        if (e.lengthComputable) {
+        progressBar.style.display = 'inline';
+          const percent = Math.round((e.loaded / e.total) * 100);
+          progressBar.value = percent;
+          statusText.textContent = `${percent}% uploaded`;
+        }
+      });
+
+      // Handle response
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          try {
+            const data = JSON.parse(xhr.responseText);
+            if (data.fileUrl) {
+              document.getElementById('linkInput').value = data.fileUrl;
+              document.getElementById('copybox').style.display = 'block';
+              statusText.textContent = 'Upload complete';
+            }
+          } catch (err) {
+            console.error('Error parsing response:', err);
+            statusText.textContent = 'Upload completed, but response was invalid.';
+          }
+        }
+      };
+
+      xhr.onerror = function() {
+        statusText.textContent = 'Error uploading file.';
+      };
+
+      xhr.open('POST', '<%- process.env.BASE_URL %>/upload', true);
+      xhr.send(formData);
+    }
+});
+
+
+
+</script>
+<script>
+    function downloadFile(fileid,encryptedFileName) {
+      const xhr = new XMLHttpRequest();
+      xhr.open('GET', '/download/'+fileid, true);
+      xhr.responseType = 'blob';
+
+      xhr.onprogress = function (event) {
+        if (event.lengthComputable) {
+          const percent = Math.round((event.loaded / event.total) * 100);
+          document.getElementById('progressBar').value = percent;
+          document.getElementById('percent').textContent = percent + '%';
+        }
+      };
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const url = window.URL.createObjectURL(xhr.response);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = encryptedFileName; // Change if needed
+          a.click();
+          window.URL.revokeObjectURL(url);
+           setTimeout(function () {
+              window.location.href = "<%- process.env.BASE_URL %>";
+            }, 3000);
+        }
+      };
+
+      xhr.send();
+    }
+  </script>
+
+<script>
+    function copyLink() {
+      const input = document.getElementById("linkInput");
+      input.select();
+      input.setSelectionRange(0, 99999); // For mobile devices
+      document.execCommand("copy");
+
+      const msg = document.getElementById("copySuccess");
+      msg.style.display = "block";
+
+      setTimeout(() => {
+        msg.style.display = "none";
+        msg.style.color = "white";
+      }, 2000);
+    }
+  </script>
+
+
+
+</body>
+</html>

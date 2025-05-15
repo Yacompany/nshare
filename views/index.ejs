@@ -1,0 +1,75 @@
+<%- include('./partials/header') %>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Quick & Secure File Upload</h2>
+            <p>Upload your files instantly and share them with ease. Safe, fast, and user-friendly!</p>
+            <div class="cta-buttons">
+            <form  id="uploadForm">
+                <input type="file" class="file-input" id="fileInput" />
+              
+                <button class="cta-btn" type="submit" >Upload File</button>
+            </form>
+            </div>
+
+    <progress id="progressBar" value="0" max="100" style="width:400px;margin-top:20px;display:none"></progress>
+      <div id="status"></div>
+
+       <div class="copy-box" id="copybox" style="display:none">
+        <input type="text" id="linkInput" value="https://yourdomain.com/download/abc123" readonly>
+        <button onclick="copyLink()">Copy</button>
+      </div>
+      <div id="copySuccess" class="copy-success">Link copied to clipboard!</div>
+
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h3>Secure File Storage</h3>
+            <p>Your files are stored with top-notch security to ensure they remain safe and private.</p>
+        </div>
+        <div class="feature">
+            <h3>Fast Upload</h3>
+            <p>Upload large files with ease and speed, saving you time and effort.</p>
+        </div>
+        <div class="feature">
+            <h3>Share with Anyone</h3>
+            <p>Instantly share uploaded files with anyone using a secure link.</p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>Step 1</h3>
+                <p>Choose your file using the upload button.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2</h3>
+                <p>Click 'Upload' to start the file transfer.</p>
+            </div>
+            <div class="step">
+                <h3>Step 3</h3>
+                <p>One time link created and valid for 24 hours . Share your file link with anyone you choose.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <p>"FileShare has revolutionized our team's ability to collaborate. The platform is easy to use and incredibly secure!"</p>
+            <h4>- <%- process.env.DEVELOPER %>, Project Manager</h4>
+        </div>
+        <div class="testimonial">
+            <p>"As a freelancer, I need a reliable and fast way to share large files with clients. FileShare delivers every time!"</p>
+            <h4>- <%- process.env.DEVELOPERTEST %>, Our Team</h4>
+        </div>
+    </section>
+
+  <%- include('./partials/footer') %>  

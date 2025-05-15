@@ -1,0 +1,345 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    padding: 20px;
+    color: white;
+}
+
+header .logo h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.logo{
+display: flex;
+}
+
+#logimg{
+        max-width: 63px;
+    background: aliceblue;
+    margin-right: 4px ;
+    border-radius: 10px;
+}
+/* Hero Section */
+.hero {
+    background-color: #007bff;
+    color: white;
+    padding: 120px 20px;
+    text-align: center;
+    background-image: linear-gradient(135deg, rgba(0, 123, 255, 0.8), rgba(0, 123, 255, 0.6));
+}
+
+.hero h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: linear-gradient(45deg, black, transparent);
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: center;
+}
+
+.file-input {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.cta-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 30px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #218838;
+}
+
+/* Features Section */
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.feature {
+    max-width: 320px;
+    padding: 20px;
+}
+
+.aboutus{
+    width: 100%;
+     padding: 60px 30px;
+}
+
+
+.about{  
+   display: flex;
+    padding: 60px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+
+
+.aboutus p{
+       font-size: 16px;
+    color: #777;
+}
+
+
+
+.feature h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.feature p {
+    font-size: 16px;
+    color: #777;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 80px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.how-it-works h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+}
+
+.step {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 280px;
+}
+
+.step h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.step p {
+    font-size: 16px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #f9f9f9;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.testimonial {
+    margin-bottom: 30px;
+    font-size: 18px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial h4 {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Footer Section */
+footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+footer .socials {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+footer .socials li {
+    margin: 0 10px;
+}
+
+footer .socials a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+footer .socials a:hover {
+    color: #28a745;
+}
+
+#stepdownload{
+    padding: 4px 20px;
+    font-size: x-large;
+    color: green;
+    border: none;
+    border-radius: 5px;
+}
+
+.copy-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.copy-box input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+ width: -webkit-fill-available;
+ margin-bottom: 5px;
+}
+
+.copy-box button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.copy-box button:hover {
+  background: #0056b3;
+}
+
+.copy-success {
+  text-align: center;
+  margin-top: 15px;
+  color: white;
+  display: none;
+}
+
+
+progress{
+    background-image: linear-gradient(45deg, black, transparent);
+
+}
+
+.aboutus h1{
+ background-image: linear-gradient(45deg, black, transparent);
+ color: white;
+ padding: 20px 10px;
+ border-radius: 10px;
+ font-size: x-large;
+}
+
+/*Mobile view */
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .section {
+    max-width: 480px;
+    margin: auto;
+  }
+
+  .steps{
+    display: grid;
+    justify-content: space-around;
+    gap: 40px;
+  }
+
+  .features{
+     display: grid;
+  }
+
+
+header .logo h1{
+  display: none;
+} 
+
+.cta-btn{
+    margin-top: 20px;
+} 
+
+.aboutus .right{
+    width: 100%;
+    margin-top: 10px;
+}
+
+.aboutus .left{
+    width: 100%;
+    margin-top: 10px;
+}
+
+}

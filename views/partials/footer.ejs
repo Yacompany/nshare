@@ -97,7 +97,7 @@
 <script>
     function downloadFile(fileid,encryptedFileName) {
       const xhr = new XMLHttpRequest();
-      xhr.open('GET', '/download/'+fileid, true);
+      xhr.open('GET', '<%- process.env.BASE_URL %>/download/'+fileid, true);
       xhr.responseType = 'blob';
 
       xhr.onprogress = function (event) {
@@ -117,7 +117,7 @@
           a.click();
           window.URL.revokeObjectURL(url);
            setTimeout(function () {
-              window.location.href = "<%- process.env.BASE_URL %>";
+            //  window.location.href = "<%- process.env.BASE_URL %>";
             }, 3000);
         }
       };

@@ -62,8 +62,8 @@ let metadata = fs.existsSync(metadataFile) ? JSON.parse(fs.readFileSync(metadata
 
 
       // Generate a URL for accessing the file (shareable link)
-      const fileUrlprev = `http://localhost:3000/uploads/${req.file.filename}`;
-      const fileUrl = `http://localhost:3000/file/${newencryption}`;
+      const fileUrlprev = `${process.env.BASE_URL}/uploads/${req.file.filename}`;
+      const fileUrl = `${process.env.BASE_URL}/file/${newencryption}`;
        res.json({
         message: 'File uploaded successfully!',
         fileUrl: fileUrl
@@ -89,9 +89,10 @@ let metadata = fs.existsSync(metadataFile) ? JSON.parse(fs.readFileSync(metadata
     const filePath = path.join(__dirname, './../uploads', fileInfo.encryptedName);
     const stat = fs.statSync(filePath);
     const totalSize = stat.size;
+    const mime_type = path.extname(fileInfo.encryptedName);
 
     res.writeHead(200, {
-      'Content-Type': 'application/pdf',
+      'Content-Type': 'application/${mime_type}',//'application/jpeg',
       'Content-Length': totalSize,
       'Content-Disposition': 'attachment; filename="${fileInfo.encryptedName}"'
     });
@@ -110,7 +111,7 @@ let metadata = fs.existsSync(metadataFile) ? JSON.parse(fs.readFileSync(metadata
       delete metadata[req.params.fileid];
       fs.writeFileSync('./metadata.json', JSON.stringify(metadata, null, 2));
     }
-
+  
 
   });
 
